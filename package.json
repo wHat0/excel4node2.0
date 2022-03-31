@@ -37,17 +37,17 @@
     "prepublish": "npm run build; npm run test"
   },
   "dependencies": {
-    "deepmerge": "3.2.0",
-    "image-size": "0.7.2",
-    "jszip": "3.7.1",
-    "lodash.get": "4.4.2",
-    "lodash.isequal": "4.5.0",
-    "lodash.isundefined": "3.0.1",
-    "lodash.reduce": "4.6.0",
-    "lodash.uniqueid": "4.0.1",
-    "mime": "2.4.0",
-    "uuid": "3.3.2",
-    "xmlbuilder": "11.0.1"
+    "deepmerge": "^3.2.0",
+    "image-size": "^0.7.2",
+    "jszip": "^3.8.0",
+    "lodash.get": "^4.4.2",
+    "lodash.isequal": "^4.5.0",
+    "lodash.isundefined": "^3.0.1",
+    "lodash.reduce": "^4.6.0",
+    "lodash.uniqueid": "^4.0.1",
+    "mime": "^2.4.0",
+    "uuid": "^3.3.2",
+    "xmlbuilder": "^11.0.1"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
