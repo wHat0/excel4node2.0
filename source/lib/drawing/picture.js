@@ -90,7 +90,9 @@ class Picture extends Drawing {
     }
 
     get rId() {
-      return this._rId;
+        return (this._rId)
+            ? this._rId
+            : 'rId' + this._id;
     }
     set rId(rId) {
       this._rId = 'rId' + rId;
