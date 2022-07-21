@@ -1,5 +1,32 @@
 # Changelog
 
+## [1.8.0](https://github.com/advisr-io/excel4node/compare/v1.7.2...v1.8.0) (2022-07-21)
+
+### New Repo & Maintainer:
+Huge thanks to [natergj](https://github.com/natergj) for his work on this library. Due to life circumstances he is no longer able to maintain this library and he has passed the torch over to us at [Advisr](https://github.com/advisr-io) to continue. We will be continuing development of this library on our fork [https://github.com/advisr-io/excel4node](https://github.com/advisr-io/excel4node) and the original repo will be deprecated. New versions will still be released to the original NPM package [https://www.npmjs.com/package/excel4node](https://www.npmjs.com/package/excel4node).
+
+This release is meant to bring the package up to date with its various dependencies to address security vulnerabilities found since the last release three years ago. Additionally a few pull requests from the original repo have been merged to address a few outstanding bug/feature requests. Thanks to [Arthur Blake](https://github.com/arthurblake-AngelOak) for identifying the pull requests to transfer over from the original repo.
+
+### Bug Fixes:
+
+* wb.Worksheep is not a function, thanks [huihui0606](https://github.com/huihui0606) ([#1](https://github.com/advisr-io/excel4node/pull/1))
+* error handling for cell row/col smaller than 1 [original issue](https://github.com/natergj/excel4node/issues/139), thanks [firlus](https://github.com/firlus) ([#2](https://github.com/advisr-io/excel4node/pull/2))
+* add default cell style definition [original pr](https://github.com/natergj/excel4node/pull/353), thanks [artiz](https://github.com/artiz ) ([#3](https://github.com/advisr-io/excel4node/pull/3))
+* fix getExceTS daylight savings bug [original pr](https://github.com/natergj/excel4node/pull/333), thanks [finnshort](https://github.com/finnshort ) ([#4](https://github.com/advisr-io/excel4node/pull/4))
+* fix readingOrder [original issue](https://github.com/natergj/excel4node/issues/327), thanks [atlanteh](https://github.com/atlanteh ) ([#5](https://github.com/advisr-io/excel4node/pull/5))
+
+### Enhancements:
+
+* upgrade dependencies ([92541fa](https://github.com/advisr-io/excel4node/commit/92541fa6c2c2268b9175341a42cf50d38a75c34b)) ([11dd63d](https://github.com/advisr-io/excel4node/commit/11dd63dce0f7ae508190e88c814c04430778dab5)) ([#7](https://github.com/advisr-io/excel4node/pull/7)) ([#24](https://github.com/advisr-io/excel4node/pull/24))
+* allow access to set picture rId manually to reduce filesize for reused images [original issue](https://github.com/natergj/excel4node/issues/302), thanks [Newbie012](https://github.com/Newbie012) ([#6](https://github.com/advisr-io/excel4node/pull/6)) ([#21](https://github.com/advisr-io/excel4node/pull/21))
+
+### Breaking Changes:
+
+* Node versions less than v14 (current maintenance LTS) are no longer supported.
+  * Please upgrade to the latest LTS release of Node (we recommend either v14 or v16).
+  * When bringing the library dependencies up to date we were forced to increase the minimum node version requirement to their level
+
+
 ## [1.7.2](https://github.com/advisr-io/excel4node/compare/v1.7.1...v1.7.2) (2019-04-28)
 
 ### Bug Fixes:
