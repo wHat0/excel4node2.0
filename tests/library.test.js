@@ -23,26 +23,26 @@ test('Test library functions', (t) => {
 
     /**
      * Tests as defined in §18.17.4.3 of ECMA-376, Second Edition, Part 1 - Fundamentals And Markup Language Reference
-     * The serial value 3687.4207639... represents 1910-02-03T10:05:54Z
-     * The serial value 1.5000000... represents 1900-01-01T12:00:00Z
-     * The serial value 2958465.9999884... represents 9999-12-31T23:59:59Z
+     * The serial value 3687.42076389... represents 1910-02-03T10:05:54Z
+     * The serial value 1.50000000... represents 1900-01-01T12:00:00Z
+     * The serial value 2958465.99998843... represents 9999-12-31T23:59:59Z
      */
-    t.equals(xl.getExcelTS(new Date('1910-02-03T10:05:54Z')), 3687.4207639, 'Correctly translated date 1910-02-03T10:05:54Z');
-    t.equals(xl.getExcelTS(new Date('1900-01-01T12:00:00Z')), 1.5000000, 'Correctly translated date 1900-01-01T12:00:00Z');
-    t.equals(xl.getExcelTS(new Date('9999-12-31T23:59:59Z')), 2958465.9999884, 'Correctly translated date 9999-12-31T23:59:59Z');
+    t.equals(xl.getExcelTS(new Date('1910-02-03T10:05:54Z')), 3687.42076389, 'Correctly translated date 1910-02-03T10:05:54Z');
+    t.equals(xl.getExcelTS(new Date('1900-01-01T12:00:00Z')), 1.50000000, 'Correctly translated date 1900-01-01T12:00:00Z');
+    t.equals(xl.getExcelTS(new Date('9999-12-31T23:59:59Z')), 2958465.99998843, 'Correctly translated date 9999-12-31T23:59:59Z');
 
     /**
      * getExcelTS should handle dates within 2 days of daylight savings change (2020-03-08 for example)
      */
-    t.equals(xl.getExcelTS(new Date('2020-03-05T15:38:00Z')), 43895.6513889, 'Correctly translated date 2020-03-01T15:38:00Z');
-    t.equals(xl.getExcelTS(new Date('2020-03-06T15:38:00Z')), 43896.6513889, 'Correctly translated date 2020-03-06T15:38:00Z'); 
+    t.equals(xl.getExcelTS(new Date('2020-03-05T15:38:00Z')), 43895.65138889, 'Correctly translated date 2020-03-01T15:38:00Z');
+    t.equals(xl.getExcelTS(new Date('2020-03-06T15:38:00Z')), 43896.65138889, 'Correctly translated date 2020-03-06T15:38:00Z');
 
     /**
      * Tests as defined in §18.17.4.1 of ECMA-376, Second Edition, Part 1 - Fundamentals And Markup Language Reference
-     * The serial value 2.0000000... represents 1900-01-01
-     * The serial value 3687.0000000... represents 1910-02-03
-     * The serial value 38749.0000000... represents 2006-02-01
-     * The serial value 2958465.0000000... represents 9999-12-31
+     * The serial value 2.00000000... represents 1900-01-01
+     * The serial value 3687.00000000... represents 1910-02-03
+     * The serial value 38749.00000000... represents 2006-02-01
+     * The serial value 2958465.00000000... represents 9999-12-31
      */
     t.equals(xl.getExcelTS(new Date('1900-01-01T00:00:00Z')), 1, 'Correctly translated 1900-01-01');
     t.equals(xl.getExcelTS(new Date('1910-02-03T00:00:00Z')), 3687, 'Correctly translated 1910-02-03');
@@ -50,6 +50,7 @@ test('Test library functions', (t) => {
     t.equals(xl.getExcelTS(new Date('9999-12-31T00:00:00Z')), 2958465, 'Correctly translated 9999-12-31');
 
     t.equals(xl.getExcelTS(new Date('2017-06-01T00:00:00.000Z')), 42887, 'Correctly translated 2017-06-01');
+    t.equals(xl.getExcelTS(new Date('2017-06-01T23:59:59.999Z')), 42887.99999999, 'Correctly translated date 2017-06-01T23:59:59Z');
 
     t.end();
 });
