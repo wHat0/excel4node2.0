@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.8.1](https://github.com/advisr-io/excel4node/compare/v1.8.0...v1.8.1) (2023-03-31)
+
+### Bug Fixes:
+
+* fixing a date issue about one millisecond before midnight, thanks [krisanselmo](https://github.com/krisanselmo) ([#54](https://github.com/advisr-io/excel4node/pull/54))
+
+### Enhancements
+
+* upgrade dependencies ([#26](https://github.com/advisr-io/excel4node/pull/26)) ([#30](https://github.com/advisr-io/excel4node/pull/30)) ([#41](https://github.com/advisr-io/excel4node/pull/41)) ([#42](https://github.com/advisr-io/excel4node/pull/42)) ([#50](https://github.com/advisr-io/excel4node/pull/50)) ([#51](https://github.com/advisr-io/excel4node/pull/51)) ([#52](https://github.com/advisr-io/excel4node/pull/52)) ([#55](https://github.com/advisr-io/excel4node/pull/55)) ([#56](https://github.com/advisr-io/excel4node/pull/56)) ([#57](https://github.com/advisr-io/excel4node/pull/57))
+
+
+### Default branch update:
+We've migrated the default branch from master to main
+
+
 ## [1.8.0](https://github.com/advisr-io/excel4node/compare/v1.7.2...v1.8.0) (2022-07-21)
 
 ### New Repo & Maintainer:
