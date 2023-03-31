@@ -31,7 +31,7 @@ let _rotateBinary = (bin) => {
     return bin.substr(1, bin.length - 1) + bin.substr(0, 1);
 };
 
-let _getHashForChar = (char, hash) => {    
+let _getHashForChar = (char, hash) => {
     hash = hash ? hash : '0000';
     let charCode = char.charCodeAt(0);
     let hashBin = parseInt(hash, 16).toString(2);
@@ -79,7 +79,7 @@ let getExcelAlpha = (colNum) => {
         let mod = (remaining - 1) % 26;
         columnName = String.fromCharCode(aCharCode + mod) + columnName;
         remaining = (remaining - 1 - mod) / 26;
-    } 
+    }
     return columnName;
 };
 
@@ -101,12 +101,12 @@ let getExcelCellRef = (rowNum, colNum) => {
         let mod = (remaining - 1) % 26;
         columnName = String.fromCharCode(aCharCode + mod) + columnName;
         remaining = (remaining - 1 - mod) / 26;
-    } 
+    }
     return columnName + rowNum;
 };
 
 /**
- * Translates a Excel cell represenation into row and column numerical equivalents 
+ * Translates a Excel cell represenation into row and column numerical equivalents
  * @function getExcelRowCol
  * @param {String} str Excel cell representation
  * @returns {Object} Object keyed with row and col
@@ -148,14 +148,14 @@ let getExcelTS = (date) => {
     const legacyLeapDate = new Date('1900-02-28T23:59:59.999Z');
     if (thisDt - legacyLeapDate > 0) {
         thisDt = new Date(thisDt.getTime() + 24 * 60 * 60 * 1000);
-    } 
+    }
 
-    // Get milliseconds between date sent to function and epoch 
+    // Get milliseconds between date sent to function and epoch
     let diff2 = thisDt.getTime() - epoch.getTime();
 
     let ts = diff2 / (1000 * 60 * 60 * 24);
 
-    return parseFloat(ts.toFixed(7));
+    return parseFloat(ts.toFixed(8));
 };
 
 let sortCellRefs = (a, b) => {
