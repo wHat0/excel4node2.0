@@ -247,6 +247,12 @@ function generateWorkbook() {
     invoiceWS.row(24).setHeight(20);
     invoiceWS.cell(24, 4, 25, 4, true).string('USD TOTAL').style(medText);
     invoiceWS.cell(24, 5, 25, 5, true).formula('SUM(E22:E23)').style(medText).style(currencyStyle);
+
+    invoiceWS.cell(27, 4).string('Invoice Paid?').style(medText);
+    invoiceWS.cell(27, 5).bool(false)
+
+    invoiceWS.cell(28, 4).string('Invoice Due?').style(medText);
+    invoiceWS.cell(28, 5).bool(true)
     /*****************************************
      * END Create a sample invoice
      *****************************************/
