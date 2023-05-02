@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.8.2](https://github.com/advisr-io/excel4node/compare/v1.8.1...v1.8.2) (2023-05-02)
+
+### Bug Fixes:
+
+* Use more standard representation of boolean values in cells, thanks [pineapplemachine](https://github.com/pineapplemachine) ([#62](https://github.com/advisr-io/excel4node/pull/62))
+
+### Enhancements
+
+* upgrade dependencies ([#60](https://github.com/advisr-io/excel4node/pull/60)) ([#61](https://github.com/advisr-io/excel4node/pull/61))
+
+
 ## [1.8.1](https://github.com/advisr-io/excel4node/compare/v1.8.0...v1.8.1) (2023-03-31)
 
 ### Bug Fixes:
