@@ -198,6 +198,32 @@ let addWorkbookXML = (promiseObj) => {
           refFormula: `'${name}'!${startCellRef}:${endCellRef}`,
         });
       }
+
+      if (s.printTitleRows || s.printTitleColumns) {
+        let refFormula = ''
+
+        if (s.printTitleRows) {
+          const startRowRef = `$${s.printTitleRows.startRow}`;
+          const endRowRef = `$${s.printTitleRows.endRow}`;
+          refFormula = `'${s.name}'!${startRowRef}:${endRowRef}`
+        }
+
+        if (s.printTitleColumns) {
+          if (refFormula.length > 0) {
+            refFormula += ','
+          }
+
+          const startColRef = `$${utils.getExcelAlpha(s.printTitleColumns.startColumn)}`;
+          const endColRef = `$${utils.getExcelAlpha(s.printTitleColumns.endColumn)}`;
+          refFormula += `'${s.name}'!${startColRef}:${endColRef}`
+        }
+
+        s.wb.definedNameCollection.addDefinedName({
+          name: '_xlnm.Print_Titles',
+          localSheetId: s.localSheetId,
+          refFormula,
+        });
+      }
     });
 
     if (!promiseObj.wb.definedNameCollection.isEmpty) {

@@ -72,7 +72,7 @@ test('Set Worksheet options', (t) => {
             'verticalDpi': 96
         },
         'sheetView': {
-            'pane': { // Note. Calling .freeze() on a row or column will adjust these values 
+            'pane': { // Note. Calling .freeze() on a row or column will adjust these values
                 'activePane': 'bottomLeft', // one of 'bottomLeft', 'bottomRight', 'topLeft', 'topRight'
                 'state': 'frozen', // one of 'split', 'frozen', 'frozenSplit'
                 'topLeftCell': 'E3', // i.e. 'A1'
@@ -92,7 +92,7 @@ test('Set Worksheet options', (t) => {
             'thickBottom': false, // 'True' if rows have a thick bottom border by default.
             'thickTop': true // 'True' if rows have a thick top border by default.
         },
-        'sheetProtection': { // same as 'Protect Sheet' in Review tab of Excel 
+        'sheetProtection': { // same as 'Protect Sheet' in Review tab of Excel
             'autoFilter': true, // True means that that user will be unable to modify this setting
             'deleteColumns': true,
             'deleteRows': true,
@@ -375,7 +375,7 @@ test('Verify Invalid Worksheet options fail type validation', (t) => {
 });
 
 test('Check worksheet defaultRowHeight behavior', (t) => {
-    // The defaultRowHeight property effects more than its own tag in the XML. 
+    // The defaultRowHeight property effects more than its own tag in the XML.
     // need to check output of sheetFormatPr.customHeight, sheetFormatPr.defaultRowHeight and each row's customHeight attribute
     // With no sheetFormat.customHeight set, the row height should scale to fit the text and ignore the sheetFormatPr.defaultRowHeight value
 
@@ -459,4 +459,51 @@ test('Check worksheet addPageBreak behavior', (t) => {
             t.end();
         });
 
+});
+
+test('Sets print title rows and columns', (t) => {
+    const wb = new xl.Workbook();
+    const ws = wb.addWorksheet('Sheet1');
+
+    ws.setPrintTitleRows(1, 2);
+    ws.setPrintTitleColumns(3, 4);
+
+    t.deepEquals(ws.printTitleRows, {
+        startRow: 1,
+        endRow: 2,
+    });
+
+    t.deepEquals(ws.printTitleColumns, {
+        startColumn: 3,
+        endColumn: 4,
+    });
+
+    t.end();
+});
+
+test('Ignores invalid print title column values', (t) => {
+    const wb = new xl.Workbook();
+    const ws = wb.addWorksheet('Sheet1');
+
+    ws.setPrintTitleColumns('A', 'B');
+
+    t.equals(ws.printTitleColumns, null);
+    t.end();
+});
+
+test('Defines special name _xlnm.Print_Titles when print title rows or columns set', async (t) => {
+    const wb = new xl.Workbook();
+    const ws = wb.addWorksheet('Sheet1');
+
+    ws.setPrintTitleRows(1, 2);
+    ws.setPrintTitleColumns(3, 4);
+
+    const xml = await wb._generateXML();
+    let doc = new DOMParser().parseFromString(xml);
+
+    const definedName = doc.getElementsByTagName('definedName')[0];
+    t.equals(definedName.getAttribute('name'), '_xlnm.Print_Titles');
+    t.equals(definedName.firstChild.nodeValue, "'Sheet1'!$1:$2,'Sheet1'!$C:$D");
+
+    t.end();
 });

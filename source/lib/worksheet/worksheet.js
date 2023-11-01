@@ -122,6 +122,8 @@ class Worksheet {
             column: [],
         };
         this.printArea = null;
+        this.printTitleRows = null;
+        this.printTitleColumns = null;
         this.lastUsedRow = 1;
         this.lastUsedCol = 1;
 
@@ -311,10 +313,51 @@ class Worksheet {
             startCol,
             endRow,
             endCol,
-        }
+        };
         return this;
     }
 
+    /**
+     * @method Worksheet.setPrintTitleRows
+     * @param {number} startRow
+     * @param {number} endRow
+     * @returns {Worksheet}
+     */
+    setPrintTitleRows(startRow, endRow) {
+        if (
+            typeof startRow !== 'number' ||
+            typeof endRow !== 'number'
+        ) {
+            this.wb.logger.warn('invalid option sent to setPrintTitleRows method');
+            return;
+        }
+        this.printTitleRows = {
+            startRow,
+            endRow
+        };
+        return this;
+    }
+
+    /**
+     * @method Worksheet.setPrintTitleColumns
+     * @param {number} startColumn
+     * @param {number} endColumn
+     * @returns {Worksheet}
+     */
+    setPrintTitleColumns(startColumn, endColumn) {
+        if (
+            typeof startColumn !== 'number' ||
+            typeof endColumn !== 'number'
+        ) {
+            this.wb.logger.warn('invalid option sent to setPrintTitleColumns method');
+            return;
+        }
+        this.printTitleColumns = {
+            startColumn,
+            endColumn
+        };
+        return this;
+    }
 }
 
 module.exports = Worksheet;

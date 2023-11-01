@@ -450,6 +450,34 @@ ws.setPrintArea(1, 1, 5, 3);
 
 ```
 
+##### Worksheet Print Titles
+
+Rows or columns to repeat on every page can be set with
+
+```js
+ws.setPrintTitleRows(startRow, endRow)
+ws.setPrintTitleColumns(startColumn, endColumn)
+```
+
+```javascript
+
+// Sets print area to include all cells between A1 and C5 including C5
+const wb = new xl.Workbook();
+const ws = wb.addWorksheet('Sheet 1');
+
+// This will repeat the first row on the top of every page
+ws.setPrintTitleRows(1, 1);
+
+// This will repeat row 2 to 5 (inclusive) on the top of every page
+ws.setPrintTitleRows(2, 5);
+
+// This will repeat column A on the left of every page
+ws.setPrintTitleColumns(1, 1);
+
+// This will repeat column B to E on the left of every page
+ws.setPrintTitleColumns(2, 5);
+```
+
 ## Rows and Columns
 
 Set custom widths and heights of columns/rows
