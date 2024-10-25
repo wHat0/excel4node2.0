@@ -55,7 +55,7 @@
     "@babel/register": "^7.18.9",
     "babel-plugin-istanbul": "^6.1.1",
     "jsdoc": "^4.0.2",
-    "nyc": "^15.0.0",
+    "nyc": "^17.1.0",
     "source-map-support": "^0.5.21",
     "tape": "^5.5.3",
     "tape-promise": "^4.0.0",
